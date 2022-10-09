@@ -1,34 +1,32 @@
+import java.util.Objects;
+
 public class Human {
     private String firstName;
     private String lastName;
-    private boolean A;
-    private boolean B;
-    private boolean C;
 
-    public Human(String firstName, String lastName, boolean a, boolean b, boolean c) {
+    public Human(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        A = a;
-        B = b;
-        C = c;
     }
 
-    public boolean isA() {
-        return A;
+    public String getLastName() {
+        return lastName;
     }
 
-    public boolean isB() {
-        return B;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Human human = (Human) o;
+        return Objects.equals(firstName, human.firstName) && Objects.equals(lastName, human.lastName);
     }
-
-    public boolean isC() {
-        return C;
-    }
-
 
 
     @Override
     public String toString() {
-        return "\n" + "Human || " + "first name: " + firstName + " || last name: " + lastName +  " || group A: " + A + " || group B: " + B + " || group C: " + C + "\n" + "\n";
+        return "Human{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}' + "\n";
     }
 }
